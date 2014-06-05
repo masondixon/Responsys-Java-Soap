@@ -15,12 +15,11 @@ import com.rsys.ws.Record;
 public class mergeTableRecordsWithPrimaryKey 
 {
 
-	public MergeTableRecordsWithPKResponse doMergeRecords( String tableName, String folderName, String[] fields, List<String[]> values,  SessionManage session ) throws RemoteException, UnexpectedErrorFault, TableFault
+	public MergeTableRecordsWithPKResponse doMergeRecords( InteractObject interact_object, String[] fields, List<String[]> values, SessionManage session ) throws RemoteException, UnexpectedErrorFault, TableFault
 	{
 		MergeTableRecordsWithPKResponse response = null;
 		ResponsysWSServiceStub instance = session.getInstance();
-		
-		InteractObject intObj = session.getInteractObject( tableName, folderName );
+
 		MergeTableRecordsWithPK mergeObj = new MergeTableRecordsWithPK();
 		
 		RecordData recordData = new RecordData();
@@ -40,7 +39,7 @@ public class mergeTableRecordsWithPrimaryKey
 
 		}
 		
-		mergeObj.setTable( intObj );
+		mergeObj.setTable( interact_object );
 		mergeObj.setRecordData( recordData );
 		mergeObj.setUpdateOnMatch( UpdateOnMatch.REPLACE_ALL );
 		mergeObj.setInsertOnNoMatch(true);

@@ -20,7 +20,7 @@ import com.rsys.ws.client.UnexpectedErrorFault;
 public class scheduleCampaignBulkLaunch 
 {
 	
-	public ScheduleCampaignLaunchResponse doLaunch( String campaignFolder, String campaignName, Date scheduleDate, SessionManage session ) throws RemoteException, CampaignFault, UnexpectedErrorFault, ParseException
+	public ScheduleCampaignLaunchResponse doLaunch( String campaignFolder, String campaignName, Calendar scheduleDate, SessionManage session ) throws RemoteException, CampaignFault, UnexpectedErrorFault, ParseException
 	{
 		ScheduleCampaignLaunchResponse result = new ScheduleCampaignLaunchResponse();
 		ScheduleCampaignLaunch launchObj = new ScheduleCampaignLaunch();
@@ -43,15 +43,12 @@ public class scheduleCampaignBulkLaunch
 		launchObj.setLaunchPreferences( launchPrefs );
 		
 		ProofLaunchOptions proofObj = new ProofLaunchOptions();
-		proofObj.setProofEmailAddress( "someEmail@developer.com" );
-		proofObj.setProofLaunchType( ProofLaunchType.LAUNCH_TO_ADDRESS);
+		proofObj.setProofEmailAddress( "mdixon@responsys.com" );
+		proofObj.setProofLaunchType( ProofLaunchType.LAUNCH_TO_ADDRESS_USING_PROOFLIST);
 	
 		launchObj.setProofLaunchOptions( proofObj );
 		
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(scheduleDate);
-		
-		launchObj.setScheduleDate( calendar );
+		launchObj.setScheduleDate( scheduleDate );
 	
 		result = session.getInstance().scheduleCampaignLaunch( launchObj, session.getSessionHeader() );
 

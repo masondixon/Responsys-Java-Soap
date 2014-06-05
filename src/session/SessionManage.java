@@ -38,10 +38,10 @@ public class SessionManage
 		return instance;
 	}
 	
-	public InteractObject getInteractObject( String listName, String folderName )
+	public InteractObject getInteractObject( String folderName, String objectName )
 	{
 		InteractObject intObj = new InteractObject();
-		intObj.setObjectName( listName );
+		intObj.setObjectName( objectName );
 		intObj.setFolderName( folderName );
 		
 		return intObj;
