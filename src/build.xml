@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<!-- Configuration of the Ant build system to generate a Jar file --> 
+<project name="test" default="CreateJar">
+  <target name="CreateJar" description="Create Jar file">
+    <!-- <jar jarfile="mason.jar" basedir="." includes="**/**.class"/> -->
+  	<jar jarfile="mason.jar" basedir="." includes="**/**.class" excludes="**test.class,**customer.class">
+     <archives>
+       <zips>
+         <fileset dir="/Users/mdixon/Documents/axis/axis2_1.62/lib" includes="**/*.jar"/>
+       </zips>
+     </archives>
+  	</jar>
+  </target>
+</project>
