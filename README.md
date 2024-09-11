@@ -1,4 +1,4 @@
-JAVA_RESP_API
+Responsys java client sample code on axis2 framework
 =============
 
 responsys java client code axis2
